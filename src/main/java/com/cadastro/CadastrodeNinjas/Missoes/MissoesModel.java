@@ -1,7 +1,10 @@
 package com.cadastro.CadastrodeNinjas.Missoes;
 
 
+import com.cadastro.CadastrodeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
@@ -13,6 +16,10 @@ public class MissoesModel {
     private Long id;
     private String nome;
     private String dificuldade;
+
+    // @ManyToOne muitos ninjas para uma missao
+    @OneToMany(mappedBy = "missoes")
+    private List<NinjaModel> ninjas;
 
     public MissoesModel() {
     }
